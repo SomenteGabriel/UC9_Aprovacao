@@ -6,8 +6,9 @@ int i = 0;
 int j = 0;
 
 
-for (i = 0; i <= 4; i++)
+for (i = 0; i <= 1; i++)
 {
+    j = 0;
     Console.Clear();
     Console.WriteLine("Qual o nome do aluno ?");
     alunos[i,j++] = Console.ReadLine();
@@ -38,7 +39,7 @@ Console.Clear();
 
 
 
-for (i = 0; i <= 5; i++)
+for (i = 0; i <= 1; i++)
 {
 
     notas[i] = (double.Parse(alunos[i,3])*30/100)+ (double.Parse(alunos[i, 4]) * 25 / 100)+ (double.Parse(alunos[i, 5]) * 30 / 100);
@@ -50,18 +51,18 @@ for (i = 0; i <= 5; i++)
     faltas[i] = Double.Parse(alunos[i,1])*25/100;
 }
 
-
-for (i=0;i<=4;i++)
+Console.WriteLine(faltas[0]);
+for (i=0;i<=1;i++)
 {
-   if (notas[i] >=6 && Double.Parse(alunos[i,2])<= faltas[i] )
+   if (notas[i] >=6 && Double.Parse(alunos[i,2]) < faltas[i])
     {
         decisao = " --APROVADO--";
     }
-    if (notas[i] >= 6 && Double.Parse(alunos[i, 2]) > faltas[i]);
+    if (notas[i] >= 6 && Double.Parse(alunos[i, 2]) > faltas[i])
     {
         decisao = " --REPROVADO_POR_FALTAS--";
     }
-    if (notas[i] < 6 && Double.Parse(alunos[i, 2]) <= faltas[i])
+    if (notas[i] < 6 && Double.Parse(alunos[i, 2]) < faltas[i])
     {
         decisao = " --REPROVADO_POR_NOTA--";
     }
