@@ -1,6 +1,7 @@
 ﻿string[,] alunos = new string[5,7];
 double[] notas = new double[5];
 double[] faltas = new double[5];
+string decisao = "";
 int i = 0;
 int j = 0;
 
@@ -47,4 +48,31 @@ for (i = 0; i <= 5; i++)
     }
 
     faltas[i] = Double.Parse(alunos[i,1])*25/100;
+}
+
+
+for (i=0;i<=4;i++)
+{
+   if (notas[i] >=6 && Double.Parse(alunos[i,2])<= faltas[i] )
+    {
+        decisao = " --APROVADO--";
+    }
+    if (notas[i] >= 6 && Double.Parse(alunos[i, 2]) > faltas[i]);
+    {
+        decisao = " --REPROVADO_POR_FALTAS--";
+    }
+    if (notas[i] < 6 && Double.Parse(alunos[i, 2]) <= faltas[i])
+    {
+        decisao = " --REPROVADO_POR_NOTA--";
+    }
+    if (notas[i] < 6 && Double.Parse(alunos[i, 2]) > faltas[i])
+    {
+        decisao = " --REPROVADO EM AMBAS AS INSTÂNCIAS--";
+    }
+
+    Console.Write("Aluno: "+alunos[i,0]+", Foi: "+decisao);
+    Console.WriteLine("");
+    Console.WriteLine("");
+
+
 }
